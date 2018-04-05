@@ -27,11 +27,11 @@ RUN pip install pyCUDA \
     h5py \
     jupyter
 
+RUN apt-get install sudo -y
 RUN useradd -ms /bin/bash ubuntu && echo "ubuntu:ubuntu" \
     | chpasswd && adduser ubuntu sudo
 WORKDIR /home/ubuntu
 
-# TODO: make with multiple procs
 RUN git clone https://github.com/bioinf-jku/binet.git
 WORKDIR binet
 RUN pip install .
