@@ -54,7 +54,12 @@ except ImportError:
 __datadir = {'tomlap': '/media/scratch/data',
              'blucomp': '/media/scratch/data'}
 _DATA_DIRECTORY = __datadir.get(platform.node(), os.path.expanduser("~/data"))
-
+if not os.path.exists(_DATA_DIRECTORY):
+    try:
+        os.makedirs(_DATA_DIRECTORY)
+    except:
+        sys.stderr.write("'{}' was not successfully created by " +\
+                "binet".format(_DATA_DIRECTORY))
 
 def load_dataset(dataset_name, return_testset=False,
                  dtype=np.float32, revert_scaling=False):
