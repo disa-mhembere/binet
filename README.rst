@@ -54,6 +54,23 @@ binet requires:
 * scikits.cuda
 * GNU Scientific Library
 
+Docker
+------
+
+A quick way to setup binet without local installation is to use docker. We
+provide a Dockerfile.
+
+To build the image. From the root directory of the repo::
+
+    docker build -t binet .
+
+To run the container with example jupyter notebooks we forward port (8888) of
+container to a host port (in this case 8888)::
+
+    jupyter notebook --ip=0.0.0.0 --no-browser
+
+Example jupyter notebooks are stored within the `examples` directory.
+
 
 Citation
 --------
