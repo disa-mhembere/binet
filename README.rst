@@ -67,9 +67,11 @@ To build the image. From the root directory of the repo::
 To run the container with example jupyter notebooks we forward port (8888) of
 container to a host port (in this case 8888)::
 
-    jupyter notebook --ip=0.0.0.0 --no-browser
+     docker run -p 8888:8888 -it binet
 
-Example jupyter notebooks are stored within the `examples` directory.
+To run the jupyter notebooks that are stored within the `examples` directory, use::
+
+    jupyter notebook --ip=0.0.0.0 --no-browser
 
 
 Citation
